@@ -1,0 +1,274 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+.logo{
+    width: 70px;
+    height: 70px;
+     margin-left: 70px;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: white;
+   background-color: rgb(2, 2, 54);
+    
+}
+.navbar a{
+    margin: 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+.navbar a:hover{
+   color: rgb(239, 100, 123);
+   font-weight: 500;
+}
+.nav-link{
+  margin-right: 60px;
+}
+
+.banner{
+    width: 100%;
+    max-width: 100%;
+    height: 550px;
+}
+.footer {
+  background-color: rgb(0, 0, 57);
+  color: #d4d4d4eb;
+  margin-top: 40px;
+  padding: 40px 40px 0 20px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 30px;
+  margin-right: 50px;
+  
+}
+
+.footer h3 {
+  color: white;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.footer p {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: rgb(205, 208, 211);
+
+}
+
+.footer-bottom {
+  border-top: 1px solid #969696;
+  padding: 15px;
+  text-align: center;
+  font-size: 13px;
+  margin-left: 80px;
+}
+
+.product-title{
+  text-align: center;
+  margin-top: 40px;
+  color: rgb(239, 100, 123);
+}
+
+.product-image{
+  width: 300px;
+  height: 200px;
+  border-radius: 8px;
+  margin: 0 auto;
+  object-fit: contain;
+  margin-top: 20px;
+  
+}
+.products{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.products-container {
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.products-container h2,p{
+    text-align: center;
+    color:rgb(2, 2, 54);
+}
+.products-container h2{
+    margin-top: 20px;
+}
+
+
+.category-image{
+  width: 300px;
+  height: 200px;
+  border-radius: 20px;
+  margin: 0 auto;
+  object-fit: contain;
+}
+.category{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.category-container {
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  color: inherit;
+}
+.category-container:hover{
+   
+   transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.category-container h3 {
+  text-align: center;
+  color: rgb(2, 2, 54);
+  margin-top: 10px;
+}
+
+.category-title{
+   text-align: center;
+  margin:40px 0;
+  color: rgb(239, 100, 123);
+
+}
+.category-detail h2{
+     text-align: center;
+  margin:40px 0;
+  color: rgb(239, 100, 123);
+
+}
+.product-card h2,p{
+  text-align: center;
+  color: rgb(2, 2, 54);
+  margin: 10px 0;
+}
+
+.products-container button{
+  background-color: red;
+  color: white;
+  width: 150px;
+  padding: 15px 20px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  font-size: 15px;
+}
+.products-container button:hover{
+  background-color: rgb(206, 5, 5);
+}
+
+.login-page{
+  min-height: 100vh;
+  width: 100%;
+  background-image: url(/images/login-background.jpeg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.login-content{
+  position: absolute;
+  background-color: rgba(255,255,255,0.55);
+  width: 400px;
+  height: 500px;
+   top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+}
+.login-logo{
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.login-form input , button{
+  display: block;
+  margin: 0 auto;
+  width: 300px;
+  padding: 12px 20px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.login-form button{
+  background-color: rgba(251, 91, 118, 0.944); ;
+  color: rgb(249, 247, 247);
+  font-size: 18px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.login-form p,a{
+  text-decoration: none;
+  color:rgb(2, 2, 54); 
+
+}
+
+
+.login-form a{
+  text-decoration: none;
+  color:rgb(2, 2, 54); 
+  font-weight: 600;
+}
+
+
+.logout-btn {
+  background: transparent;
+  border: 1px solid #8890A6;
+  color: #EDEEF2;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100px;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  display: inline-block;
+  margin-right:-50px;
+  margin-left: 40px;
+}
+
+.logout-btn:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: #EDEEF2;
+}
+
