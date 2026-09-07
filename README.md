@@ -1,4 +1,4 @@
-Treasure Toy Nepal 🧸🇳🇵
+Treasure Toy Nepal 
 
 Treasure Toy Nepal is a full-stack web application for discovering and managing educational, age-appropriate, and beneficial toys for children.
 
