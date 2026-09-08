@@ -63,11 +63,6 @@ TreasureToyNepal/
 
 🚀 Getting Started
 
-1. Clone the Repository
-
-git clone <YOUR_GITHUB_REPOSITORY_URL>
-cd <YOUR_PROJECT_FOLDER>
-
 🔹 Backend Setup
 
 cd treasuretoynepal-be
