@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.routers import products, category, users, child, subscription, order, order_item, address
 
+
 app = FastAPI(title="Kids Store API")
 
 app.add_middleware(

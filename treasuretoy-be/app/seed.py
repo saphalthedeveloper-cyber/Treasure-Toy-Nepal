@@ -1,0 +1,106 @@
+from app.database import SessionLocal, engine, Base
+from app.models.category import Category
+from app.models.products import Product
+
+Base.metadata.create_all(bind=engine)
+
+db = SessionLocal()
+
+if db.query(Category).count() == 0:
+    categories = [
+        Category(id=1, age="0-6 Months", min_age_months=0, max_age_months=6, image="0-6months.jpg"),
+        Category(id=2, age="6-12 Months", min_age_months=6, max_age_months=12, image="6-12years.jpg"),
+        Category(id=3, age="1-2 Years", min_age_months=12, max_age_months=24, image="1-2years.jpg"),
+        Category(id=4, age="2-3 Years", min_age_months=24, max_age_months=36, image="2-3years.jpg"),
+        Category(id=5, age="3-5 Years", min_age_months=36, max_age_months=60, image="3-5years.jpg"),
+        Category(id=6, age="5-7 Years", min_age_months=60, max_age_months=84, image="5-7years.jpg"),
+        Category(id=7, age="7-10 Years", min_age_months=84, max_age_months=120, image="7-10years.jpg"),
+        Category(id=8, age="10-13 Years", min_age_months=120, max_age_months=156, image="10-13years.jpg"),
+    ]
+    db.add_all(categories)
+    db.commit()
+
+if db.query(Product).count() == 0:
+    products =[
+    Product(name='High-Contrast Cards', description='Black/white/red patterns stimulate early visual development before color vision matures', price=450.00, stock=49, category_id=1, image='High-Contrast-Cards.jpg', min_age_months=0, max_age_months=6),
+    Product(name='Soft Rattle', description='Encourages grasp reflex and introduces sound-cause tracking', price=650.00, stock=41, category_id=1, image='Soft-Rattle.jpg', min_age_months=0, max_age_months=6),
+    Product(name='Textured Sensory Ball', description='Builds tactile awareness and early grasping skills', price=900.00, stock=29, category_id=1, image='Textured-Sensory-Ball.jpg', min_age_months=0, max_age_months=6),
+    Product(name='Crinkle Fabric Book', description='Sound and texture stimulate sensory exploration and early cause-effect', price=1000.00, stock=25, category_id=1, image='Crinkle-Fabric-Book.jpg', min_age_months=0, max_age_months=6),
+    Product(name='BabyGym-PlayMat', description='Encourages reaching, kicking, and tummy-time strength building', price=2500.00, stock=45, category_id=1, image='BabyGym-PlayMat.jpg', min_age_months=0, max_age_months=6),
+    Product(name='Teething Ring', description='Soothes gums while developing hand-to-mouth coordination', price=600.00, stock=25, category_id=1, image='Teething-Ring.jpg', min_age_months=0, max_age_months=6),
+    Product(name='Mirror Toy', description='Supports self-recognition development and visual tracking', price=900.00, stock=14, category_id=1, image='Mirror-Toy.jpg', min_age_months=0, max_age_months=6),
+    Product(name='Soft Stacking Rings (large)', description='Introduces size differentiation and early hand-eye coordination', price=1500.00, stock=18, category_id=1, image='Soft-Stacking-Rings.jpg', min_age_months=0, max_age_months=6),
+    Product(name='Musical Mobile', description='Auditory stimulation and calming visual tracking over crib', price=3500.00, stock=42, category_id=1, image='Musical-Mobile.jpg', min_age_months=0, max_age_months=6),
+    Product(name='Squeeze Toy', description='Builds hand strength and cause-effect understanding', price=1000.00, stock=33, category_id=1, image='Squeeze-Toy.jpg', min_age_months=0, max_age_months=6),
+    Product(name='Stacking Rings', description='Teaches size order, hand-eye coordination, and problem solving', price=1500.00, stock=10, category_id=2, image='Stacking-Rings.jpg', min_age_months=6, max_age_months=12),
+    Product(name='Shape Sorter (basic)', description='Introduces shape recognition and spatial reasoning', price=2000.00, stock=26, category_id=2, image='Shape-Sorter.jpg', min_age_months=6, max_age_months=12),
+    Product(name='Push Walker Toy', description='Supports early walking confidence and gross motor skills', price=2500.00, stock=34, category_id=2, image='Push-Walker-Toy.jpg', min_age_months=6, max_age_months=12),
+    Product(name='Nesting Cups', description='Builds spatial awareness and fine motor control', price=1500.00, stock=27, category_id=2, image='Nesting-Cups.jpg', min_age_months=6, max_age_months=12),
+    Product(name='Cause-Effect Button Toy', description='Reinforces action-reaction understanding through sound/light feedback', price=2000.00, stock=48, category_id=2, image='Cause-Effect-Button-Toy.jpg', min_age_months=6, max_age_months=12),
+    Product(name='Soft Building Blocks', description='Early stacking skills and hand-eye coordination', price=2050.00, stock=23, category_id=2, image='Soft-Building-Blocks.jpg', min_age_months=6, max_age_months=12),
+    Product(name='Peekaboo Board Book', description='Builds object permanence and early language exposure', price=900.00, stock=24, category_id=2, image='Peekaboo-Board-Book.jpg', min_age_months=6, max_age_months=12),
+    Product(name='Textured Ball Set', description='Encourages crawling pursuit and tactile discrimination', price=1500.00, stock=50, category_id=2, image='Textured-Ball-Set.jpg', min_age_months=6, max_age_months=12),
+    Product(name='Activity Cube', description='Multi-skill development: shapes, sounds, textures in one toy', price=3500.00, stock=11, category_id=2, image='Activity-Cube.jpg', min_age_months=6, max_age_months=12),
+    Product(name='Finger Puppets', description='Supports early social engagement and imaginative play', price=1200.00, stock=12, category_id=2, image='Finger-Puppets.jpg', min_age_months=6, max_age_months=12),
+    Product(name='Chunky Wooden Puzzle', description='Builds fine motor skills and early problem-solving', price=1500.00, stock=23, category_id=3, image='Chunky-Wooden-Puzzle.jpg', min_age_months=12, max_age_months=24),
+    Product(name='Shape Sorter (advanced)', description='Reinforces shape, color, and spatial matching skills', price=1800.00, stock=42, category_id=3, image='Shape-Sorter-Adv.jpg', min_age_months=12, max_age_months=24),
+    Product(name='Stacking Blocks Set', description='Develops balance, spatial reasoning, and creativity', price=1000.00, stock=49, category_id=3, image='Stacking-Blocks-Set.jpg', min_age_months=12, max_age_months=24),
+    Product(name='Push-and-Pull Toy', description='Encourages walking confidence and gross motor coordination', price=2300.00, stock=22, category_id=3, image='Push-and-Pull-Toy.jpg', min_age_months=12, max_age_months=24),
+    Product(name='Pretend Phone/Kitchen Toy', description='Introduces early imaginative and social play', price=2500.00, stock=13, category_id=3, image='Pretend-Phone-Kitchen-Toy.jpg', min_age_months=12, max_age_months=24),
+    Product(name='Board Book Set', description='Builds early vocabulary and listening skills', price=2100.00, stock=37, category_id=3, image='Board-Book-Set.jpg', min_age_months=12, max_age_months=24),
+    Product(name='Large Crayons', description='Develops grip strength and early mark-making skills', price=700.00, stock=18, category_id=3, image='Large-Crayons.jpg', min_age_months=12, max_age_months=24),
+    Product(name='Ball & Hoop Set', description='Builds gross motor skills and hand-eye coordination', price=3000.00, stock=39, category_id=3, image='Ball-&-Hoop-Set.jpg', min_age_months=12, max_age_months=24),
+    Product(name='Musical Instrument Toys', description='Introduces rhythm, cause-effect, and sensory exploration', price=1800.00, stock=5, category_id=3, image='Musical-Instrument-Toys.jpg', min_age_months=12, max_age_months=24),
+    Product(name='Simple Ride-On Toy', description='Builds leg strength, balance, and independence', price=3000.00, stock=25, category_id=3, image='Simple-Ride-On-Toy.jpg', min_age_months=12, max_age_months=24),
+    Product(name='Duplo-style Building Blocks', description='Encourages creativity, spatial skills, and fine motor development', price=3400.00, stock=41, category_id=4, image='Duplo-style-Building-Blocks.jpg', min_age_months=24, max_age_months=36),
+    Product(name='Wooden Jigsaw Puzzle (12pc)', description='Builds problem-solving and hand-eye coordination', price=1500.00, stock=43, category_id=4, image='Wooden-Jigsaw-Puzzle.jpg', min_age_months=24, max_age_months=36),
+    Product(name='Pretend Play Kitchen Set', description='Develops language, social skills, and imaginative thinking', price=2000.00, stock=20, category_id=4, image='Pretend-Play-Kitchen-Set.jpg', min_age_months=24, max_age_months=36),
+    Product(name='Sorting & Counting Toy', description='Introduces early math concepts like counting and categorizing', price=1200.00, stock=39, category_id=4, image='Sorting-&-Counting-Toy.jpg', min_age_months=24, max_age_months=36),
+    Product(name='Finger Paint Set', description='Builds fine motor skills and creative self-expression', price=1600.00, stock=20, category_id=4, image='Finger-Paint-Set.jpg', min_age_months=24, max_age_months=36),
+    Product(name='Balance Bike', description='Develops gross motor skills, balance, and coordination', price=2600.00, stock=18, category_id=4, image='Balance-Bike.jpg', min_age_months=24, max_age_months=36),
+    Product(name='Simple Memory Card Game', description='Builds early memory and turn-taking skills', price=2000.00, stock=37, category_id=4, image='Simple-Memory-Card-Game.jpg', min_age_months=24, max_age_months=36),
+    Product(name='Dress-Up Costume Set', description='Encourages imaginative role play and social-emotional growth', price=1000.00, stock=21, category_id=4, image='Dress-Up-Costume-Set.jpg', min_age_months=24, max_age_months=36),
+    Product(name='Playdough Set', description='Builds fine motor strength and creative exploration', price=1010.00, stock=50, category_id=4, image='Playdough-Set.jpg', min_age_months=24, max_age_months=36),
+    Product(name='Toy Tool Set', description='Introduces cause-effect learning and imaginative problem-solving', price=1500.00, stock=39, category_id=4, image='Toy-Tool-Set.jpg', min_age_months=24, max_age_months=36),
+    Product(name='Jigsaw Puzzle (24-48pc)', description='Builds logic, patience, and spatial reasoning', price=1200.00, stock=46, category_id=5, image='Jigsaw-Puzzle.jpg', min_age_months=36, max_age_months=60),
+    Product(name='Magnetic Building Tiles', description='Develops engineering thinking, creativity, and spatial skills', price=4000.00, stock=10, category_id=5, image='Magnetic-Building-Tiles.jpg', min_age_months=36, max_age_months=60),
+    Product(name='Alphabet/Number Puzzle', description='Introduces early literacy and numeracy concepts', price=1200.00, stock=18, category_id=5, image='Alphabet-Number-Puzzle.jpg', min_age_months=36, max_age_months=60),
+    Product(name='Board Game (matching/memory)', description='Builds memory, turn-taking, and social skills', price=1000.00, stock=27, category_id=5, image='Board-Game.jpg', min_age_months=36, max_age_months=60),
+    Product(name='Art & Craft Kit', description='Encourages creativity and fine motor development', price=1120.00, stock=26, category_id=5, image='Art-&-Craft-Kit.jpg', min_age_months=36, max_age_months=60),
+    Product(name='Balance Bike / Tricycle', description='Builds coordination, balance, and physical confidence', price=6000.00, stock=18, category_id=5, image='Balance-Bike-Tricycle.jpg', min_age_months=36, max_age_months=60),
+    Product(name='Simple Science Kit', description='Introduces cause-effect reasoning and early curiosity for science', price=2000.00, stock=45, category_id=5, image='Simple-Science-Kit.jpg', min_age_months=36, max_age_months=60),
+    Product(name='Building Block Set (larger)', description='Develops spatial reasoning and creative construction skills', price=2300.00, stock=36, category_id=5, image='Building-Block-Set-larger.jpg', min_age_months=36, max_age_months=60),
+    Product(name='Storytelling Card Set', description='Builds language skills and narrative imagination', price=1840.00, stock=39, category_id=5, image='Storytelling-Card-Set.jpg', min_age_months=36, max_age_months=60),
+    Product(name='Dress-Up Role Play Set', description='Encourages imaginative and social-emotional development', price=3060.00, stock=16, category_id=5, image='Dress-Up-Role-Play-Set.jpg', min_age_months=36, max_age_months=60),
+    Product(name='STEM Building Kit', description='Introduces basic engineering and problem-solving concepts', price=3820.00, stock=6, category_id=6, image='STEM-Building-Kit.jpg', min_age_months=60, max_age_months=84),
+    Product(name='Board Game (strategy, e.g. checkers)', description='Builds strategic thinking and patience', price=1530.00, stock=33, category_id=6, image='Board-Game-Checkers.jpg', min_age_months=60, max_age_months=84),
+    Product(name='Beginner Coding Toy/Robot', description='Introduces logical sequencing and early coding concepts', price=6120.00, stock=46, category_id=6, image='Beginner-Coding-Toy-Robot.jpg', min_age_months=60, max_age_months=84),
+    Product(name='Art Easel & Supplies', description='Develops creativity and fine motor precision', price=3820.00, stock=26, category_id=6, image='Art-Easel-&-Supplies.jpg', min_age_months=60, max_age_months=84),
+    Product(name='Math Manipulatives Set', description='Builds hands-on understanding of numbers and operations', price=2300.00, stock=15, category_id=6, image='Math-Manipulatives-Set.jpg', min_age_months=60, max_age_months=84),
+    Product(name='Jump Rope / Sports Set', description='Builds gross motor skills, coordination, and fitness habits', price=1220.00, stock=29, category_id=6, image='Jump-Rope-Sports-Set.jpg', min_age_months=60, max_age_months=84),
+    Product(name='Puzzle Globe / Map Puzzle', description='Introduces geography and spatial awareness', price=1840.00, stock=19, category_id=6, image='Puzzle-Globe-Map-Puzzle.jpg', min_age_months=60, max_age_months=84),
+    Product(name='Simple Musical Instrument (keyboard)', description='Builds rhythm, discipline, and early music theory', price=4590.00, stock=35, category_id=6, image='Simple-Musical-Instrument.jpg', min_age_months=60, max_age_months=84),
+    Product(name='Magnetic Tiles (advanced sets)', description='Develops spatial reasoning and complex construction skills', price=5360.00, stock=43, category_id=6, image='Magnetic-Tiles.jpg', min_age_months=60, max_age_months=84),
+    Product(name='Reading Comprehension Card Game', description='Builds vocabulary and reading confidence', price=1530.00, stock=17, category_id=6, image='Reading-Comprehension-Card-Game.jpg', min_age_months=60, max_age_months=84),
+    Product(name='Advanced STEM/Robotics Kit', description='Builds engineering, coding, and problem-solving skills', price=6120.00, stock=17, category_id=7, image='Advanced-STEM-Robotics-Kit.jpg', min_age_months=84, max_age_months=120),
+    Product(name='Strategy Board Game (chess, etc.)', description='Develops critical thinking and planning skills', price=2300.00, stock=43, category_id=7, image='Board-Game-Checkers.jpg', min_age_months=84, max_age_months=120),
+    Product(name='Science Experiment Kit', description='Encourages hypothesis-testing and hands-on scientific learning', price=3060.00, stock=48, category_id=7, image='Science-Experiment-Kit.jpg', min_age_months=84, max_age_months=120),
+    Product(name='Model Building Kit', description='Builds patience, fine motor skills, and spatial reasoning', price=2300.00, stock=38, category_id=7, image='Model-Building-Kit.jpg', min_age_months=84, max_age_months=120),
+    Product(name='Coding Kit for Kids', description='Introduces programming logic and computational thinking', price=6120.00, stock=38, category_id=7, image='Coding-Kit-for-Kids.jpg', min_age_months=84, max_age_months=120),
+    Product(name='Craft & Sewing Kit', description='Builds fine motor skills and creative planning', price=2300.00, stock=11, category_id=7, image='Craft-&-Sewing-Kit.jpg', min_age_months=84, max_age_months=120),
+    Product(name='Sports Equipment (basketball/soccer)', description='Builds physical fitness, coordination, and teamwork', price=2300.00, stock=30, category_id=7, image='Sports-Equipment.jpg', min_age_months=84, max_age_months=120),
+    Product(name='Trivia/Knowledge Board Game', description='Builds general knowledge and critical thinking', price=1840.00, stock=19, category_id=7, image='Trivia-Knowledge-Board-Game.jpg', min_age_months=84, max_age_months=120),
+    Product(name='Musical Instrument (guitar/keyboard)', description='Develops discipline, coordination, and music theory understanding', price=7650.00, stock=33, category_id=7, image='Musical-Instrument.jpg', min_age_months=84, max_age_months=120),
+    Product(name="Puzzle Cube (Rubik's-style)", description='Builds spatial reasoning and persistence', price=1220.00, stock=36, category_id=7, image='Puzzle-Cube.jpg', min_age_months=84, max_age_months=120),
+    Product(name='Advanced Robotics/Coding Kit', description='Builds computational thinking and real-world engineering skills', price=9180.00, stock=7, category_id=8, image='Advanced-Robotics-Coding-Kit.jpg', min_age_months=120, max_age_months=156),
+    Product(name='Chess Set (tournament-style)', description='Develops strategic planning and critical thinking', price=2300.00, stock=26, category_id=8, image='Chess-Set.jpg', min_age_months=120, max_age_months=156),
+    Product(name='Science Kit (chemistry/electronics)', description='Encourages hands-on experimentation and scientific reasoning', price=4590.00, stock=5, category_id=8, image='Science-Kit.jpg', min_age_months=120, max_age_months=156),
+    Product(name='Creative Writing/Journal Kit', description='Builds self-expression and language skills', price=1530.00, stock=7, category_id=8, image='Creative-Writing-Journal-Kit.jpg', min_age_months=120, max_age_months=156),
+    Product(name='Model Kit (advanced, e.g. architecture)', description='Builds patience, precision, and spatial planning', price=3060.00, stock=10, category_id=8, image='Model-Kit.jpg', min_age_months=120, max_age_months=156),
+    Product(name='Sports Gear (skateboard, badminton set)', description='Builds physical fitness and skill mastery', price=3820.00, stock=46, category_id=8, image='Sports-Gear.jpg', min_age_months=120, max_age_months=156),
+    Product(name='Puzzle Set (1000pc)', description='Builds patience, focus, and spatial reasoning', price=1840.00, stock=23, category_id=8, image='Puzzle-Set.jpg', min_age_months=120, max_age_months=156),
+    Product(name='Personal Finance/Business Board Game', description='Introduces early financial literacy and decision-making', price=2300.00, stock=30, category_id=8, image='Personal-Finance-Business-Board-Game.jpg', min_age_months=120, max_age_months=156),
+]
+    db.add_all(products)
+    db.commit() 
+db.close()

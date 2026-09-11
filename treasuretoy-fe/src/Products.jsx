@@ -19,7 +19,7 @@ const Products = () => {
           <div key={product.id} className="products-container">
             <img className="product-image" src={`/images/${product.image}`} alt="product" />
             <h2>{product.name}</h2>
-            <p>${product.price}</p>
+            <p>NPR{product.price}</p>
             <button onClick={handleBuyNow}>Buy Now</button>
           </div>
         ))}

@@ -13,7 +13,7 @@ const Home = () => {
       <img className="banner" src="/images/banner.jpeg" alt="banner" />
 
       <section className="categories">
-        <h2 className="category-title">Categories</h2>
+        <h2 className="category-title">Shop By Age</h2>
         <div className="category">
           {categories.map((category) => (
             <Link

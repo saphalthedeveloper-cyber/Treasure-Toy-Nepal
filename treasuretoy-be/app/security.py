@@ -24,11 +24,11 @@ def verify_password(password,hash_password):
 def create_access_token(data:dict):
     to_encode=data.copy()
 
-    expire=datetime.now(timezone.utc)+timedelta(minutes=30)
+    expire=datetime.now(timezone.utc)+timedelta(minutes=3000)
     to_encode.update({
         "exp":expire
     })
-    token=jwt.encode(to_encode,os.getenv("SERECT_KEY"),algorithm= os.getenv("ALGORITHM"))
+    token=jwt.encode(to_encode,os.getenv("SECRET_KEY"),algorithm= os.getenv("ALGORITHM"))
     return token
 
 oauth2_schema=OAuth2PasswordBearer(tokenUrl="/login")
@@ -37,7 +37,7 @@ def get_current_user(token:str=Depends(oauth2_schema),db:Session=Depends(get_db)
     try:
         payload=jwt.decode(
             token,
-            os.getenv("SERECT_KEY"),
+            os.getenv("SECRET_KEY"),
             os.getenv("ALGORITHM")
         )
         email = payload.get('sub')

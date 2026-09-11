@@ -16,8 +16,8 @@ const Navbar = () => {
       {token ? (
         <div className="nav-link">
           <Link to="/">Home</Link>
-          <Link to="/products">Products</Link>
           <Link to="/subscription">Subscription</Link>
+          <Link to="/products">Products</Link>
           <Link to="/about">About</Link>
           <button onClick={handleLogout} className="logout-btn">Logout</button>
         </div>
