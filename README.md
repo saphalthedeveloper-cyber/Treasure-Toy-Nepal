@@ -1,330 +1,104 @@
-Treasure Toy Nepal 
-
-Treasure Toy Nepal is a full-stack web application for discovering and managing educational, age-appropriate, and beneficial toys for children.
-
-The project uses a FastAPI backend, React frontend, and PostgreSQL database.
-
-🛠️ Tech Stack
-
-Backend
-
-Python
-
-FastAPI
-
-Uvicorn
-
-SQLAlchemy
-
-PostgreSQL
-
-JWT Authentication
-
-Passlib
-
-Bcrypt
-
-Python Dotenv
-
-Email Validator
-
-Frontend
-
-React
-
-React DOM
-
-React Router DOM
-
-npm
-
-Database
-
-PostgreSQL
-
-Database name: TreasureToyNepal
-
-📁 Project Structure
-
-TreasureToyNepal/
-├── treasuretoynepal-be/
-│   ├── app/
-│   │   └── main.py
-│   ├── venv/
-│   ├── .env
-│   └── ...
-├── treasuretoynepal-fe/
-│   ├── src/
-│   ├── public/
-│   ├── package.json
-│   └── ...
-├── README.md
-└── .gitignore
-
-🚀 Getting Started
-
-🔹 Backend Setup
-
-cd treasuretoynepal-be
-python -m venv venv
-
-Activate the Virtual Environment on Windows
-
-source venv/Scripts/activate
-
-If that does not work:
-
-venv\Scripts\activate
-
-Install Dependencies
-
-pip install fastapi uvicorn python-dotenv
-pip install sqlalchemy email-validator
-pip install psycopg2-binary python-jose passlib bcrypt
-pip install "python-jose[cryptography]"
-pip install pyjwt
-pip install "bcrypt==4.0.1"
-
-🗄️ Database Setup
-
-Treasure Toy Nepal uses PostgreSQL. Make sure PostgreSQL is installed and running, then create a database named TreasureToyNepal.
-
-
-Variable
-
-Description
-
-Example
-
-DATABASE_URL
-
-PostgreSQL connection string
-
-postgresql://postgres:password@localhost:5432/TreasureToyNepal
-
-SECRET_KEY
-
-Secret key for JWT authentication
-
-secret-key 
-
-ALGORITHM
-
-JWT signing algorithm
-
-HS256
-
-ACCESS_TOKEN_EXPIRE_MINUTES
-
-Token expiration time
-
-30
-
-Important: Never commit .env, database passwords, or real secret keys to GitHub.
-
-Recommended .gitignore entries:
-
-.env
-venv/
-__pycache__/
-*.pyc
-
-▶️ Run the Backend
-
-cd treasuretoynepal-be
-source venv/Scripts/activate
-uvicorn app.main:app --reload
-
-Backend:
-
-http://127.0.0.1:8000
-
-FastAPI Swagger documentation:
-
-http://127.0.0.1:8000/docs
-
-
-🔹 Frontend Setup
-
-Open a new terminal:
-
-cd treasuretoynepal-fe
-
-Install dependencies:
-
-npm install
-
-If the required packages are not already in package.json:
-
-npm install react react-dom react-router-dom
-
-▶️ Run the Frontend
-
-npm run dev
-
-The frontend will normally be available at:
-
-http://localhost:5173
-
-🧪 Run the Full Application
-
-Use two terminals.
-
-Terminal 1 — Backend
-
-cd treasuretoynepal-be
-source venv/Scripts/activate
-uvicorn app.main:app --reload
-
-Terminal 2 — Frontend
-
-cd treasuretoynepal-fe
-npm run dev
-
-Then open http://localhost:5173 in your browser.
-
-🔐 Authentication
-
-Treasure Toy Nepal uses JWT (JSON Web Tokens) for authentication.
-
+Treasure Toy Nepal
+
+An e-commerce platform for kids' toys, organized by age category — built with React, FastAPI, and PostgreSQL, fully containerized with Docker.
+
+Tech Stack
+Frontend: React (Vite)
+Backend: FastAPI (Python)
+Database: PostgreSQL
+Containerization: Docker & Docker Compose
+Auth: JWT (python-jose) + bcrypt password hashing (passlib)
+Prerequisites
+Docker Desktop installed and running
+Git
+Getting Started
+1. Clone the repository
+bash
+git clone https://github.com/saphalthedeveloper-cyber/Treasure-Toy-Nepal.git
+cd Treasure-Toy-Nepal
+2. Set up environment variables
+
+Edit .env with your own secret values:
+
+DB_PASSWORD=your_password_here
+SECRET_KEY=your_secret_key_here
 ALGORITHM=HS256
-ACCESS_TOKEN_EXPIRE_MINUTES=30
+ACCESS_TOKEN_EXPIRE_MINUTES=300
 
-Access tokens expire after 30 minutes by default.
+3. Build and run with Docker Compose
+bash
+docker compose up --build
 
-🔄 Application Architecture
+This starts three services:
 
-┌──────────────────────┐
-│    React Frontend    │
-│    localhost:5173    │
-└──────────┬───────────┘
-           │ HTTP / API
-           ▼
-┌──────────────────────┐
-│    FastAPI Backend   │
-│    localhost:8000    │
-└──────────┬───────────┘
-           │ SQLAlchemy
-           ▼
-┌──────────────────────┐
-│      PostgreSQL      │
-│   TreasureToyNepal   │
-└──────────────────────┘
+Service	URL	Description
+Frontend	http://localhost:5173	React app
+Backend	http://localhost:8000	FastAPI server
+API Docs	http://localhost:8000/docs	Interactive Swagger docs
+Database	localhost:5433 (external)	PostgreSQL (internal: 5432)
+4. Seed the database
 
-📦 Main Features
+The first time you run the project, populate it with starting categories and products:
 
-🧸 Educational and beneficial toy recommendations
+bash
+docker exec -it treasure-toy-nepal-backend-1 python -m app.seed
 
-👶 Age-based toy categories
+This is safe to run multiple times — it only inserts data if the tables are currently empty.
 
-🔐 User authentication
+Project Structure
+Treasure-Toy-Nepal/
+├── docker-compose.yml
+├── .env.example
+├── treasuretoy-be/          # FastAPI backend
+│   ├── Dockerfile
+│   ├── requirements.txt
+│   └── app/
+│       ├── main.py
+│       ├── database.py
+│       ├── security.py
+│       ├── seed.py          # Initial data seeding script
+│       ├── models/
+│       ├── routers/
+│       └── schema/
+└── treasuretoy-fe/           # React frontend
+    ├── Dockerfile
+    ├── package.json
+    └── src/
+Useful Commands
 
-🔑 JWT-based authorization
+Start containers (detached/background):
 
-🗄️ PostgreSQL database
+bash
+docker compose up -d
 
-⚡ FastAPI REST API
+Stop containers:
 
-⚛️ React frontend
+bash
+docker compose down
 
-🧭 React Router navigation
+View logs:
 
-📱 Responsive user interface
+bash
+docker compose logs backend --tail 50
 
-👶 Age-Based Toy Categories
+Rebuild after dependency changes:
 
-0–6 months
+bash
+docker compose up --build
 
-6–12 months
+Access the database directly:
 
-1–2 years
+bash
+docker exec -it treasure-toy-nepal-db-1 psql -U postgres -d treasuretoynepal
 
-2–3 years
+Re-run the seed script:
 
-3–5 years
+bash
+docker exec -it treasure-toy-nepal-backend-1 python -m app.seed
+Notes
+Product/category images are served from treasuretoy-fe/public/images/. Filenames in the database must exactly match files in this folder (case-sensitive, exact extension).
+Database data persists across restarts via a Docker volume (postgres_data). Running docker compose down is safe; running docker compose down -v will delete all data.
+The PostgreSQL container is exposed on host port 5433 (not the default 5432) to avoid conflicts with any local PostgreSQL installation.
+License
 
-5–7 years
-
-7–10 years
-
-10–13 years
-
-Each category can include toy name, age suitability, educational benefits, price, image, and other product information.
-
-🔒 Security
-
-Never upload the following to GitHub:
-
-Database passwords
-
-JWT secret keys
-
-API keys
-
-.env files
-
-Production credentials
-
-Use environment variables for sensitive configuration.
-
-🛠️ Troubleshooting
-
-PostgreSQL Connection Error
-
-Check that:
-
-PostgreSQL is installed.
-
-PostgreSQL is running.
-
-The TreasureToyNepal database exists.
-
-Your PostgreSQL username and password are correct.
-
-DATABASE_URL is correct.
-
-Backend Does Not Start
-
-Activate the virtual environment and reinstall dependencies if necessary:
-
-source venv/Scripts/activate
-pip install -r requirements.txt
-
-Frontend Does Not Start
-
-npm install
-npm run dev
-
-📌 Future Improvements
-
-🛒 Shopping cart
-
-❤️ Wishlist
-
-⭐ Toy reviews and ratings
-
-🔎 Advanced search and filtering
-
-💰 Price-range filtering
-
-🖼️ Toy image gallery
-
-👨‍👩‍👧 Parent/guardian profiles
-
-📊 Admin dashboard
-
-📦 Order management
-
-💳 Online payment integration
-
-📧 Email notifications
-
-☁️ Production deployment
-
-📄 License
-
-This project is currently intended for educational and development purposes.
-
-🧸 Treasure Toy Nepal
-
-Discover. Learn. Play. Grow. 🇳🇵
+This project is proprietary and not licensed for public use/distribution.
