@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useFetch from "./UseFetch";
 import { useNavigate } from "react-router-dom";
 

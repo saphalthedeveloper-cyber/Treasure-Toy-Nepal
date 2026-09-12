@@ -18,7 +18,7 @@ const Subscription = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // 1. Create child
+      
       const childRes = await fetch('http://127.0.0.1:8000/children', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ const Subscription = () => {
       });
       const child = await childRes.json();
 
-      // 2. Create address
+     
       await fetch('http://127.0.0.1:8000/addresses', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json','Authorization': `Bearer ${token}`, },
@@ -44,7 +44,7 @@ const Subscription = () => {
         }),
       });
 
-      // 3. Create subscription
+    
       const subRes = await fetch('http://127.0.0.1:8000/subscription', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' , 'Authorization': `Bearer ${token}`,},

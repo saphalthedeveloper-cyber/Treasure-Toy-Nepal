@@ -4,11 +4,10 @@ const SubscriptionFinal = () => {
 
   useEffect(() => {
     const date = new Date();
-
-    // Add 3 days
+    
     date.setDate(date.getDate() + 3);
 
-    // Format date
+    
     const formattedDate = date.toLocaleDateString("en-NP", {
       year: "numeric",
       month: "long",

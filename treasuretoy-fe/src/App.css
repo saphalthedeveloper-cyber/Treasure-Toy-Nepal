@@ -527,8 +527,6 @@ height: 400px;
 }
 
 
-
-/* Header Section */
 .card-header {
   display: flex;
   align-items: center;
@@ -674,7 +672,6 @@ height: 400px;
   margin-left: 8px;
 }
 
-/* Features List */
 .features-list-2 {
   list-style: none;
   padding: 0;
@@ -701,7 +698,6 @@ height: 400px;
   flex-shrink: 0;
 }
 
-/* Button */
 .cta-button-2 {
   width: 100%;
   padding: 12px 20px;
@@ -752,7 +748,6 @@ height: 400px;
   padding: 40px 20px;
 }
 
-/* Form */
 .subscription-form {
   width: 100%;
   max-width: 600px;
@@ -762,7 +757,6 @@ height: 400px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 }
 
-/* Heading */
 .subscription-form h2 {
   margin-bottom: 30px;
   color: #0f447d;
@@ -779,7 +773,6 @@ height: 400px;
   padding-bottom: 8px;
 }
 
-/* Inputs */
 .subscription-form input,
 .subscription-form select {
   width: 100%;
@@ -797,14 +790,12 @@ height: 400px;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-/* Focus */
 .subscription-form input:focus,
 .subscription-form select:focus {
   border-color: #2aa7a1;
   box-shadow: 0 0 0 3px rgba(42, 167, 161, 0.12);
 }
 
-/* Payment */
 .subscription-form p {
   background: #f8f9ff;
   border: 1px solid #e1e7f2;
@@ -814,7 +805,6 @@ height: 400px;
   margin-bottom: 25px;
 }
 
-/* Button */
 .subscription-form button {
   width: 100%;
   padding: 14px;
@@ -841,7 +831,6 @@ height: 400px;
   transform: translateY(0);
 }
 
-/* Mobile */
 @media (max-width: 600px) {
   .subscription-container {
     padding: 20px 15px;
@@ -880,7 +869,7 @@ height: 400px;
   box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
 }
 
-/* Success icon */
+
 
 .success-icon {
   width: 70px;
@@ -901,7 +890,6 @@ height: 400px;
   font-weight: bold;
 }
 
-/* Heading */
 
 .thankyou-card h1 {
   margin-bottom: 12px;
@@ -919,7 +907,6 @@ height: 400px;
   margin-bottom: 30px;
 }
 
-/* Subscription details */
 
 .subscription-info {
   text-align: left;
@@ -959,7 +946,6 @@ height: 400px;
   color: #0f447d;
 }
 
-/* Delivery message */
 
 .delivery-message {
   color: #344054;
@@ -967,8 +953,6 @@ height: 400px;
 
   margin-bottom: 25px;
 }
-
-/* Button */
 
 .home-button {
   width: 100%;
@@ -994,7 +978,6 @@ height: 400px;
   transform: translateY(-2px);
 }
 
-/* Mobile */
 
 @media (max-width: 600px) {
   .thankyou-card {
@@ -1042,7 +1025,6 @@ height: 400px;
   transform: translateY(-5px);
 }
 
-/* Image on LEFT */
 .category-card img {
   width: 180px;
   height: 180px;
@@ -1054,7 +1036,6 @@ height: 400px;
   flex-shrink: 0;
 }
 
-/* Text on RIGHT */
 .category-content {
   flex: 1;
   padding-left: 25px;

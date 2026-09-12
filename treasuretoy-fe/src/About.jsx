@@ -83,7 +83,7 @@ const About = () => {
 
             <div className="feature-card">
               <span className="feature-icon">🔄</span>
-              <h4>3. Play &amp; Return</h4>
+              <h4>3. Play & Return</h4>
               <p>Once outgrown, send the toy back so another child can enjoy it.</p>
             </div>
 
