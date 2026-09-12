@@ -23,7 +23,6 @@ Edit .env with your own secret values:
 DB_PASSWORD=your_password_here
 SECRET_KEY=your_secret_key_here
 ALGORITHM=HS256
-ACCESS_TOKEN_EXPIRE_MINUTES=300
 
 3. Build and run with Docker Compose
 bash
