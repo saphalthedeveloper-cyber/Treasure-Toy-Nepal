@@ -31,7 +31,7 @@ def create_access_token(data:dict):
     token=jwt.encode(to_encode,os.getenv("SECRET_KEY"),algorithm= os.getenv("ALGORITHM"))
     return token
 
-oauth2_schema=OAuth2PasswordBearer(tokenUrl="/login")
+oauth2_schema=OAuth2PasswordBearer(tokenUrl="/users/login")
 
 def get_current_user(token:str=Depends(oauth2_schema),db:Session=Depends(get_db)):
     try:

@@ -11,6 +11,8 @@ class Category(Base):
     min_age_months = Column(Integer, nullable=False)
     max_age_months = Column(Integer, nullable=False)
     image = Column(String) 
+    title=Column(String)
+    color=Column(String)
     products = relationship("Product", back_populates="category")
     
    

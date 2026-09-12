@@ -7,18 +7,89 @@ Base.metadata.create_all(bind=engine)
 db = SessionLocal()
 
 if db.query(Category).count() == 0:
-    categories = [
-        Category(id=1, age="0-6 Months", min_age_months=0, max_age_months=6, image="0-6months.jpg"),
-        Category(id=2, age="6-12 Months", min_age_months=6, max_age_months=12, image="6-12years.jpg"),
-        Category(id=3, age="1-2 Years", min_age_months=12, max_age_months=24, image="1-2years.jpg"),
-        Category(id=4, age="2-3 Years", min_age_months=24, max_age_months=36, image="2-3years.jpg"),
-        Category(id=5, age="3-5 Years", min_age_months=36, max_age_months=60, image="3-5years.jpg"),
-        Category(id=6, age="5-7 Years", min_age_months=60, max_age_months=84, image="5-7years.jpg"),
-        Category(id=7, age="7-10 Years", min_age_months=84, max_age_months=120, image="7-10years.jpg"),
-        Category(id=8, age="10-13 Years", min_age_months=120, max_age_months=156, image="10-13years.jpg"),
-    ]
-    db.add_all(categories)
-    db.commit()
+   categories = [
+    Category(
+        id=1,
+        age="0-6 Months",
+        title="Early Discovery",
+        min_age_months=0,
+        max_age_months=6,
+        image="0-6months.jpg",
+        color="#FFE4EC"
+    ),
+
+    Category(
+        id=2,
+        age="6-12 Months",
+        title="Curious Explorer",
+        min_age_months=6,
+        max_age_months=12,
+        image="6-12months.jpg",
+        color="#DDF7F5"
+    ),
+
+    Category(
+        id=3,
+        age="1-2 Years",
+        title="Little Discoverer",
+        min_age_months=12,
+        max_age_months=24,
+        image="1-2years.jpg",
+        color="#FFF1D6"
+    ),
+
+    Category(
+        id=4,
+        age="2-3 Years",
+        title="Growing & Learning",
+        min_age_months=24,
+        max_age_months=36,
+        image="2-3years.jpg",
+        color="#EAE4FF"
+    ),
+
+    Category(
+        id=5,
+        age="3-5 Years",
+        title="Creative Explorer",
+        min_age_months=36,
+        max_age_months=60,
+        image="3-5years.jpg",
+        color="#FFE4EC"
+    ),
+
+    Category(
+        id=6,
+        age="5-7 Years",
+        title="Young Adventurer",
+        min_age_months=60,
+        max_age_months=84,
+        image="5-7years.jpg",
+         color="#E1F0FF"
+    ),
+
+    Category(
+        id=7,
+        age="7-10 Years",
+        title="Young Explorer",
+        min_age_months=84,
+        max_age_months=120,
+        image="7-10years.jpg",
+        color="#E5F7E8"
+    ),
+
+    Category(
+        id=8,
+        age="10-13 Years",
+        title="Future Creator",
+        min_age_months=120,
+        max_age_months=156,
+        image="10-13years.jpg",
+        color="#F0E6FF"
+    ),
+]
+db.add_all(categories)
+db.commit()
 
 if db.query(Product).count() == 0:
     products =[

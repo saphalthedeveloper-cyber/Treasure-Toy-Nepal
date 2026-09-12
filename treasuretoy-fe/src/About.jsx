@@ -4,7 +4,7 @@ const About = () => {
      const navigate = useNavigate();
     const handleSubmit= (e)=>{
         e.preventDefault();
-        navigate("/subscription")
+        navigate("/subscriptionplan")
     }
   return (
     <section className="about">
@@ -98,7 +98,7 @@ const About = () => {
 
         <div className="about-cta">
           <h3>Give your kid endless toys, not endless costs</h3>
-          <p>Subscribe today and let the toys come to you — age after age, until they turn 8.</p>
+          <p>Subscribe today and let the toys come to you — age after age, until they turn 13.</p>
           <button className="about-btn" onClick={handleSubmit}>Start Subscription</button>
         </div>
 

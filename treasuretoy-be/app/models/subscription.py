@@ -9,6 +9,7 @@ class Subscription(Base):
     child_id = Column(Integer, ForeignKey("children.id"), nullable=False)
     status = Column(String(20), nullable=False)
     start_date = Column(Date)
+    plan=Column(String)
     next_billing_date = Column(Date)
     next_delivery_date = Column(Date)
     created_at = Column(DateTime(timezone=True), server_default=func.now())

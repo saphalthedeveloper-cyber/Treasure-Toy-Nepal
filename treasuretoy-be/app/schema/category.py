@@ -9,6 +9,8 @@ class CategoryResponse(BaseModel):
     min_age_months: int
     max_age_months: int
     image: str
+    title:str
+    color:str
     products: List[ProductResponse] = []
 
 model_config = ConfigDict(from_attributes=True)

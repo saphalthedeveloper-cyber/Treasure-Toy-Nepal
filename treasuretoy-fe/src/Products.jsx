@@ -13,13 +13,13 @@ const Products = () => {
 
   return (
     <>
-      <h1 className="product-title">Featured Products</h1>
+      <h1 className="product-title">Loved by Little Ones</h1>
       <div className="products">
         {products.map((product) => (
           <div key={product.id} className="products-container">
             <img className="product-image" src={`/images/${product.image}`} alt="product" />
             <h2>{product.name}</h2>
-            <p>NPR{product.price}</p>
+            <p>NPR {product.price}</p>
             <button onClick={handleBuyNow}>Buy Now</button>
           </div>
         ))}

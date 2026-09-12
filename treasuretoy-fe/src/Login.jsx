@@ -15,12 +15,13 @@ const Login = () => {
     setError("");
     setLoading(true);
 
+   
     try {
       const res = await fetch("http://127.0.0.1:8000/users/login", {
         method: 'POST',
         credentials: 'include',
         headers: {
-          'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email, password })
       });
@@ -30,7 +31,8 @@ const Login = () => {
       }
 
       const data = await res.json();
-      localStorage.setItem("token", data.access_token);
+      localStorage.setItem("token", data.access_token)
+      localStorage.setItem("userId", data.user_id);
       navigate('/'); 
     } catch (err) {
       setError(err.message);

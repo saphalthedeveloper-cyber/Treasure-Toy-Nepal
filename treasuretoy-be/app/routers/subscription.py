@@ -6,7 +6,7 @@ from app.database import get_db
 from app.models.subscription import Subscription
 from app.schema.subscription import SubscriptionCreate, SubscriptionResponse
 
-router = APIRouter(prefix="/subscriptions", tags=["Subscriptions"])
+router = APIRouter(prefix="/subscription", tags=["Subscriptions"])
 
 
 @router.post("/", response_model=SubscriptionResponse)

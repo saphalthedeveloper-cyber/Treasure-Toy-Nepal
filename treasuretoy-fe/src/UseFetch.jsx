@@ -12,7 +12,9 @@ function UseFetch(url) {
     const token = localStorage.getItem("token");
 
     fetch(url, {
-      headers: token ? { Authorization: `Bearer ${token}` } : {}
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
     })
       .then(response => {
         if (!response.ok) {
