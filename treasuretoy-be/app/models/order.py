@@ -6,7 +6,6 @@ class Order(Base):
 
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
-    child_id = Column(Integer, ForeignKey("children.id"), nullable=False)
     total_amount = Column(Numeric(10, 2), nullable=False)
     status = Column(String(50), nullable=False, default="pending")
     created_at = Column(DateTime(timezone=True), server_default=func.now())

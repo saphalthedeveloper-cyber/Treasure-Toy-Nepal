@@ -7,12 +7,13 @@ const Category = () => {
   const { id } = useParams();
   const { data: category, loading, error } = useFetch(`http://127.0.0.1:8000/category/${id}`);
 const navigate = useNavigate();
-const handleBuyNow = () => {
+const handleBuyNow = (product) => {
   const token = localStorage.getItem("token");
   if (!token) {
-    navigate("/users/login");
-    return;
-  }
+    navigate("/users/login");}
+    else {
+       navigate(`/order/${product.id}`);
+    }
 }
   if (loading) return <p>Loading products...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -32,7 +33,7 @@ const handleBuyNow = () => {
             />
             <h4>{product.name}</h4>
             <p className="product-price">Rs. {product.price}</p>
-             <button  onClick={handleBuyNow} >Buy Now</button>
+            <button onClick={() => handleBuyNow(product)}>Buy Now</button>
           </div>
         ))}
       </div>

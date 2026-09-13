@@ -7,7 +7,7 @@ from app.database import get_db
 from app.models.order_item import OrderItem
 from app.schema.order_item import OrderItemCreate, OrderItemResponse
 
-router = APIRouter(prefix="/order-items", tags=["Order Items"])
+router = APIRouter(prefix="/orderitem", tags=["Order Items"])
 
 
 @router.post("/", response_model=OrderItemResponse)

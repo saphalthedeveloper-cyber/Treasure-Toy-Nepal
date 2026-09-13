@@ -1,17 +1,31 @@
 
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState ,useEffect,useRef} from "react";
 
 
 const Navbar = () => {
-  const [showProfile,setShowProfile]=useState("false")
+  const [showProfile,setShowProfile]=useState(false)
+  const profileRef=useRef(null);
+  useEffect(()=>{
+    function handleClickOutside(event){
+      if(
+        profileRef.current && !profileRef.current.contains(event.target)){
+          setShowProfile(false);
+        }
+      }
+        document.addEventListener("mousedown",handleClickOutside)
+      
+        return()=>{
+             document.removeEventListener("mousedown",handleClickOutside)
+        }
+      
+  },[])
     const navigate = useNavigate();
   const token = localStorage.getItem("token");
   const username = localStorage.getItem("username");
 const email = localStorage.getItem("email");
      const handleLogout = () => {
-    localStorage.removeItem("token");
-      localStorage.removeItem("token");
+  localStorage.removeItem("token");
   localStorage.removeItem("userId");
   localStorage.removeItem("username");
   localStorage.removeItem("email");
@@ -30,10 +44,10 @@ const email = localStorage.getItem("email");
           <Link to="/subscriptionplan">Subscription</Link>
           <Link to="/products">Shop</Link>
           <Link to="/about">About</Link>
-          
-           <span onClick={()=>setShowProfile(!showProfile)} className="showprofile-logo">👤</span>
+           <span ref={profileRef}>
+           <span onClick={()=>setShowProfile(!showProfile)}  className="showprofile-logo">👤</span>
            {
-            !showProfile && (
+            showProfile && (
               <>
               <span className="showprofile">
                <span className="showprofile-username">{username}</span>
@@ -45,6 +59,8 @@ const email = localStorage.getItem("email");
                  
             )
            }
+           </span>
+          
           
            
          

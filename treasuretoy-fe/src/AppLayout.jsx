@@ -11,6 +11,8 @@ import Login from './Login';
 import Signup from './Signup'
 import Subscription from './Subscription';
 import SubscriptionFinal from './SubscriptionFinal'
+import Order from './Order'
+import OrderItemThx from './OrderItemThx'
 
 
 const AppLayout = () => {
@@ -30,6 +32,9 @@ const AppLayout = () => {
             <Route path="/subscriptionplan" element={<SubscriptionPlan />} />
              <Route path="/subscription" element={<Subscription />} />
              <Route path="/subscriptionfinal" element={<SubscriptionFinal />} />
+              <Route path="/order/:id" element={<Order />} />
+               <Route path="/orderitemthx" element={<OrderItemThx />} />
+             
         </Routes>
         {!login && !signup && <Footer />}
     </>

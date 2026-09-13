@@ -16,3 +16,11 @@ def get_products(db: Session = Depends(get_db),current_user:User=Depends(get_cur
     if not db_product:
         raise HTTPException(status_code=404, detail="Products not found")
     return db_product 
+
+@router.get("/{product_id}", response_model=ProductResponse)
+def get_products(product_id: int, db: Session = Depends(get_db)):
+    product = db.query(Product).filter(Product.id == product_id).first()
+    if not product:
+        raise HTTPException(status_code=404, detail="Product not found")
+    return product
+

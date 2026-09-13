@@ -1,20 +1,21 @@
 import { useEffect, useState } from "react";
-const SubscriptionFinal = () => {
- const [startDate, setStartDate] = useState("");
+import { useLocation } from "react-router-dom";
 
+const OrderItemThx = () => {
+  const [deliveryDate, setDeliveryDate] = useState("");
+const location = useLocation();
+  const id = location.state.orderid;
   useEffect(() => {
     const date = new Date();
-    
     date.setDate(date.getDate() + 3);
 
-    
     const formattedDate = date.toLocaleDateString("en-NP", {
       year: "numeric",
       month: "long",
       day: "numeric",
     });
 
-    setStartDate(formattedDate);
+    setDeliveryDate(formattedDate);
   }, []);
 
   return (
@@ -28,13 +29,13 @@ const SubscriptionFinal = () => {
         <h1>Thank You! 🎉</h1>
 
         <p className="thankyou-message">
-          Your TreasureToy subscription has been successfully confirmed.
+          Your order has been successfully placed.
         </p>
 
-        <div className="subscription-info">
+        <div className="order-info">
           <div className="info-row">
-            <span>Subscription</span>
-            <strong>Discovery Plan</strong>
+            <span>Order ID</span>
+            <strong>#{id}</strong>
           </div>
 
           <div className="info-row">
@@ -44,12 +45,12 @@ const SubscriptionFinal = () => {
 
           <div className="info-row">
             <span>Estimated Delivery</span>
-            <strong>{startDate}</strong>
+            <strong>{deliveryDate}</strong>
           </div>
         </div>
 
         <p className="delivery-message">
-          🎁 Your first TreasureToy box will be prepared for you.
+          🎁 Your order is being prepared for delivery.
         </p>
 
         <button
@@ -62,6 +63,6 @@ const SubscriptionFinal = () => {
       </div>
     </div>
   );
-}
- 
-export default SubscriptionFinal;
+};
+
+export default OrderItemThx;

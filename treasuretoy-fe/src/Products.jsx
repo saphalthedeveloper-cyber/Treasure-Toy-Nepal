@@ -4,8 +4,8 @@ const Products = () => {
   const navigate = useNavigate();
   const { data: products, loading, error } = useFetch("http://127.0.0.1:8000/products");
 
-   const handleBuyNow = () => {
-    navigate('/orders');
+   const handleBuyNow = (product) => {
+    navigate(`/order/${product.id}`);
   };
 
   if (loading) return <p>Loading products...</p>;
@@ -20,7 +20,7 @@ const Products = () => {
             <img className="product-image" src={`/images/${product.image}`} alt="product" />
             <h2>{product.name}</h2>
             <p>NPR {product.price}</p>
-            <button onClick={handleBuyNow}>Buy Now</button>
+            <button onClick={() => handleBuyNow(product)}>Buy Now</button>
           </div>
         ))}
       </div>
