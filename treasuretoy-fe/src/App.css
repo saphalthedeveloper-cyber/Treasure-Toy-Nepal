@@ -1323,12 +1323,7 @@ button{
   margin-top: 5px;
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  opacity: 1;
-  -webkit-appearance: inner-spin-button;
-  display: block;
-} */
+ */
 .price-container-4 {
   width: 350px;
   background-color: #ecedee;
@@ -1390,14 +1385,7 @@ input[type="number"]::-webkit-outer-spin-button {
   background-color: #0a2570;
 }
 
-  @media (max-width: 1133px) {
-   
-  .details , .product-image-order, .price-container-4 {
-    display: block;
-    margin: 0 auto;
-    margin-top: 30px;
-  }
-}
+
 
 .order-info{
   text-align: left;
@@ -1411,4 +1399,67 @@ input[type="number"]::-webkit-outer-spin-button {
   padding: 20px;
 
   margin-bottom: 25px;
+}
+
+
+.price-container-4{
+  margin-top: 60px;
+}
+
+  @media (max-width: 1133px) {
+   
+  .details , .product-image-order, .price-container-4 {
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+  }
+}
+
+.mission-card h3{
+  text-align: center;
+  margin: 0 auto;
+}
+.stat h3{
+  margin: 0 auto;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  opacity: 1;
+  -webkit-appearance: inner-spin-button;
+  display: block;
+}
+
+ .subscription-form h3{
+  
+  margin-left: 10px;
+}
+
+.category-detail h2{
+  font-size: 40px;
+}
+.products-container h4 {
+   margin-top: 10px
+  ;
+}
+
+.footer-container h3{
+    text-align: left;
+    margin-left: 5px;
+}
+
+.footer-container p{
+  text-align: left;
+  margin-left: 5px;
+}
+.footer-container{
+  margin-right: 10px;
+}
+
+@media (max-width: 630px) {
+   .nav-link a:nth-child(3),
+  .nav-link a:nth-child(4) {
+    display: none;
+
+}
 }
