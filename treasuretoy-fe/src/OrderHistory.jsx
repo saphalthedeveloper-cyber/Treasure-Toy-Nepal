@@ -13,9 +13,6 @@ const OrderHistory = () => {
     if (!orders || orders.length === 0) {
         return <p>No orders found.</p>;
     }
-    console.log("orders:", orders);
-    console.log("ordersproduct:", orders[0].items[0].product);
-    console.log("ordersitem:", orders[0].items);
 
     return (
       <div className="order-history">

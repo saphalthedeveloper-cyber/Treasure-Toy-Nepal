@@ -16,8 +16,8 @@ const Order= () => {
   const totalPrice = price * quantity + delivery;
 
 
-  const handleSubmit= async ()=> {
-      
+  const handleSubmit= async (e)=> {
+      e.preventDefault();
       if (!street.trim() || !city.trim()) {
         setSubmitError("Please enter your street and city.");
 
@@ -26,9 +26,6 @@ const Order= () => {
       }, 3000);
         return;
     }
-    
-     
-   
      
    try {
       const token = localStorage.getItem("token"); 
@@ -131,14 +128,14 @@ const Order= () => {
         placeholder="Street"
         value={street}
         onChange={(e) => setStreet(e.target.value)}
-        required
+        
       />
 
       <input
         placeholder="City"
         value={city}
         onChange={(e) => setCity(e.target.value)}
-        required
+        
       />
           </div>
      
@@ -153,7 +150,7 @@ const Order= () => {
     <h3>NPR {totalPrice.toFixed(2)}</h3>
   </div>
 
-  <button className="confirm-btn" onClick={handleSubmit} >Confirm</button>
+  <button className="confirm-btn" type="submit" >Confirm</button>
   <p className="submit-error">{submitError}</p>
 </div>
     </form>
