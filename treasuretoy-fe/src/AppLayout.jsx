@@ -13,7 +13,7 @@ import Subscription from './Subscription';
 import SubscriptionFinal from './SubscriptionFinal'
 import Order from './Order'
 import OrderItemThx from './OrderItemThx'
-
+import OrderHistory from './OrderHistory'
 
 const AppLayout = () => {
     const location = useLocation();
@@ -24,6 +24,7 @@ const AppLayout = () => {
         {!login && !signup && <Navbar />}
         <Routes>
             <Route path="/users/login" element={<Login />} />
+
              <Route path="/users" element={<Signup />} />
             <Route path="/" element={<Home />} />
             <Route path="/category/:id" element={<Category />} />
@@ -34,6 +35,7 @@ const AppLayout = () => {
              <Route path="/subscriptionfinal" element={<SubscriptionFinal />} />
               <Route path="/order/:id" element={<Order />} />
                <Route path="/orderitemthx" element={<OrderItemThx />} />
+               <Route path="/orderhistory" element={<OrderHistory />} />
              
         </Routes>
         {!login && !signup && <Footer />}

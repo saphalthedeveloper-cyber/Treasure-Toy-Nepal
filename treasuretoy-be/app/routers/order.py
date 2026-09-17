@@ -16,3 +16,10 @@ def create_order(order: OrderCreate, db: Session = Depends(get_db) ,current_user
     db.commit()
     db.refresh(new_order)
     return new_order
+
+@router.get('/orderhistory',response_model=list[OrderResponse])
+def show_order(db:Session=Depends(get_db),current_user:User=Depends(get_current_user)):
+    db_order=db.query(Order).filter(
+        Order.user_id==current_user.id
+    ).all()
+    return db_order

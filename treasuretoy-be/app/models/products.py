@@ -15,10 +15,8 @@ class Product(Base):
     image = Column(String(255))
     min_age_months = Column(Integer, nullable=False)
     max_age_months = Column(Integer, nullable=False)
-    category = relationship(
-        "Category",
-        back_populates="products"
-    )
+    category = relationship("Category",back_populates="products")
+    order_items = relationship("OrderItem",back_populates="product")
     created_at = Column(DateTime(timezone=True), nullable=False, server_default=func.now())
     updated_at = Column(DateTime(timezone=True), nullable=False, server_default=func.now())
     

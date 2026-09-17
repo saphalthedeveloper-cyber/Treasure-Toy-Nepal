@@ -14,11 +14,10 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-
    
     setLoading(true);
     try {
-      const res = await fetch("http://127.0.0.1:8000/users", {
+      const res = await fetch("http://127.0.0.1:8000/users/", {
         method: 'POST',
         credentials: 'include',
         headers: {

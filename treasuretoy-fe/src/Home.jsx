@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import useFetch from "./UseFetch";
 
 const Home = () => {
-  const { data: categories, loading, error } = useFetch("http://127.0.0.1:8000/category");
+  const { data: categories, loading, error } = useFetch("http://127.0.0.1:8000/category/");
 
   if (loading) return <p>Loading categories...</p>;
   if (error) return <p>Error: {error}</p>;

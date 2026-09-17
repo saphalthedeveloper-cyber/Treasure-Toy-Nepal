@@ -19,7 +19,7 @@ const Subscription = () => {
     e.preventDefault();
     try {
       
-      const childRes = await fetch('http://127.0.0.1:8000/children', {
+      const childRes = await fetch('http://127.0.0.1:8000/children/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`,
@@ -34,7 +34,7 @@ const Subscription = () => {
       const child = await childRes.json();
 
      
-      await fetch('http://127.0.0.1:8000/addresses', {
+      await fetch('http://127.0.0.1:8000/addresses/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json','Authorization': `Bearer ${token}`, },
         body: JSON.stringify({
@@ -45,7 +45,7 @@ const Subscription = () => {
       });
 
     
-      const subRes = await fetch('http://127.0.0.1:8000/subscription', {
+      const subRes = await fetch('http://127.0.0.1:8000/subscription/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' , 'Authorization': `Bearer ${token}`,},
         body: JSON.stringify({

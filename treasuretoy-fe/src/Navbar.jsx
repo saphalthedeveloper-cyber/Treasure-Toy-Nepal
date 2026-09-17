@@ -20,6 +20,11 @@ const Navbar = () => {
         }
       
   },[])
+
+  function handleOrder(e){
+        e.preventDefault()
+        navigate('/orderhistory')
+  }
     const navigate = useNavigate();
   const token = localStorage.getItem("token");
   const username = localStorage.getItem("username");
@@ -52,6 +57,7 @@ const email = localStorage.getItem("email");
               <span className="showprofile">
                <span className="showprofile-username">{username}</span>
                   <span className="showprofile-email">{email}</span>
+                  <button onClick={handleOrder} className="show-profile-order">My Orders</button>
                    <button onClick={handleLogout} className="logout-btn">Logout</button>
               </span>
               

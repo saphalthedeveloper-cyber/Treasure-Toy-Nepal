@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String, Numeric, DateTime, ForeignKey, func
 from app.database import Base
+from sqlalchemy.orm import relationship
 
 class Order(Base):
     __tablename__ = "orders"
@@ -10,3 +11,5 @@ class Order(Base):
     status = Column(String(50), nullable=False, default="pending")
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    items = relationship("OrderItem", back_populates="order")

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const Category = () => {
   const { id } = useParams();
-  const { data: category, loading, error } = useFetch(`http://127.0.0.1:8000/category/${id}`);
+  const { data: category, loading, error } = useFetch(`http://127.0.0.1:8000/category/${id}/`);
 const navigate = useNavigate();
 const handleBuyNow = (product) => {
   const token = localStorage.getItem("token");

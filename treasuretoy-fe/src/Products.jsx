@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import useFetch from "./UseFetch"
 const Products = () => {
   const navigate = useNavigate();
-  const { data: products, loading, error } = useFetch("http://127.0.0.1:8000/products");
+  const { data: products, loading, error } = useFetch("http://127.0.0.1:8000/products/");
 
    const handleBuyNow = (product) => {
     navigate(`/order/${product.id}`);

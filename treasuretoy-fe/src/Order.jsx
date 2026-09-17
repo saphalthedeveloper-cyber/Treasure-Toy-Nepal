@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState ,useEffect} from "react";
 import useFetch from "./UseFetch";
 import { useParams ,useNavigate} from "react-router-dom";
 const Order= () => {
@@ -14,8 +14,22 @@ const Order= () => {
    const price = Number(products.price);
   const delivery = 100;
   const totalPrice = price * quantity + delivery;
-  const handleSubmit= async (e)=> {
-     e.preventDefault()
+
+
+  const handleSubmit= async ()=> {
+      
+      if (!street.trim() || !city.trim()) {
+        setSubmitError("Please enter your street and city.");
+
+        setTimeout(() => {
+        setSubmitError(null);
+      }, 3000);
+        return;
+    }
+    
+     
+   
+     
    try {
       const token = localStorage.getItem("token"); 
       const user = localStorage.getItem("userId");
@@ -50,7 +64,7 @@ const Order= () => {
           product_id:products.id
         }),
       })
-      const addressRes=await fetch('http://127.0.0.1:8000/addresses', {
+      const addressRes=await fetch('http://127.0.0.1:8000/addresses/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json','Authorization': `Bearer ${token}`, },
         body: JSON.stringify({
@@ -59,8 +73,11 @@ const Order= () => {
           city:city,
         }),
       });
+
+      
       if (!addressRes.ok) throw new Error(`Address save failed with status ${addressRes.status}`);
    const address =await addressRes.json();
+   if(address.length===0) throw new Error('No Delivery Address');
       console.log("Order placed:", address);
       if (!orderItemRes.ok) {
         throw new Error(`Order item failed with status ${orderItemRes.status}`);
@@ -76,7 +93,9 @@ const Order= () => {
   
   return (
     <>
-      <div className="product-container-order">
+
+
+        <form onSubmit={handleSubmit} className="product-container-order">
        
        
        <img className="product-image-order" src={`/images/${products.image}`} alt={products.name} />
@@ -84,7 +103,7 @@ const Order= () => {
   <div className="details">
          <h2>{products.name}</h2>
         <p>{products.description}</p>
-          
+         
           <input
             type="number"
             value={quantity}
@@ -106,6 +125,7 @@ const Order= () => {
   </div>
   <div className="price-row">
     <h3 className="add-title">Delivery Address</h3>
+     
           <div className="add">
              <input
         placeholder="Street"
@@ -123,6 +143,7 @@ const Order= () => {
           </div>
      
   </div>
+  
   <div className="price-row">
     <h2>Price</h2>
     <h3>NPR {price.toFixed(2)}</h3>
@@ -133,13 +154,13 @@ const Order= () => {
   </div>
 
   <button className="confirm-btn" onClick={handleSubmit} >Confirm</button>
+  <p className="submit-error">{submitError}</p>
 </div>
-           
-
-
-         
-      </div>
+    </form>
+     
+      
     </>
+    
   );
 }
 
