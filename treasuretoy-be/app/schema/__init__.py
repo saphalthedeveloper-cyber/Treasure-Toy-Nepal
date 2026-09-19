@@ -6,3 +6,4 @@ from app.schema.products import ProductResponse
 from app.schema.subscription import SubscriptionResponse
 from app.schema.order import OrderResponse
 from app.schema.order_item import OrderItemResponse
+from app.schema.payment import PaymentResponse

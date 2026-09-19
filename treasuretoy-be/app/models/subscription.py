@@ -1,6 +1,5 @@
 from sqlalchemy import Column, Integer, String, Date, DateTime, ForeignKey, func
 from app.database import Base
-
 class Subscription(Base):
     __tablename__ = "subscriptions"
 
@@ -14,3 +13,4 @@ class Subscription(Base):
     next_delivery_date = Column(Date)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), server_default=func.now())
+    

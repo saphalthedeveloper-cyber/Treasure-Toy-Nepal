@@ -34,7 +34,7 @@ const handleGetStarted2 = () => {
   };
   return (
     <>
-      <img className="sub-banner" src="images/sub-banner.jpeg" alt="sub" />
+      <img className="sub-banner" src="images/subscription-banner-b.jpeg" alt="sub" />
       <h1 className='sub-title'>Choose Your Plan</h1>
       <h3 className='sub-des'>Flexible plans to match your child's needs and your family's journey.</h3>
       <div className="pricing-card">

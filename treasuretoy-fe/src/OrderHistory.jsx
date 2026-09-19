@@ -16,7 +16,7 @@ const OrderHistory = () => {
 
     return (
       <div className="order-history">
-    <h1>Order History</h1>
+    <h1>My Orders</h1>
 
     {orders.map((order) => (
         <div className="order-card" key={order.id}>
@@ -44,7 +44,7 @@ const OrderHistory = () => {
                         <p>Price: Rs. {item.price}</p>
                         <p>Description: {item.product.description}</p>
                          <p className="order-total">
-                Total: Rs. {order.total_amount}
+                Total Amount: Rs. {order.total_amount}
             </p>
                     </div>
 

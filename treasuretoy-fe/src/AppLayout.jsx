@@ -8,13 +8,15 @@ import Category from './Category';
 import './App.css'
 import Footer from './Footer';
 import Login from './Login';
-import Signup from './Signup'
+import Signup from './Signup';
 import Subscription from './Subscription';
 import SubscriptionFinal from './SubscriptionFinal'
-import Order from './Order'
-import OrderItemThx from './OrderItemThx'
-import OrderHistory from './OrderHistory'
-
+import Order from './Order';
+import SubscriptionHistory from './SubscriptionHistory';
+import PaymentMethod from './PaymentMethod';
+import OrderHistory from './OrderHistory';
+import PaymentFailure from "./PaymentFailure";
+import PaymentSuccess from "./PaymentSuccess";
 const AppLayout = () => {
     const location = useLocation();
     const login = location.pathname === '/users/login';
@@ -34,9 +36,11 @@ const AppLayout = () => {
              <Route path="/subscription" element={<Subscription />} />
              <Route path="/subscriptionfinal" element={<SubscriptionFinal />} />
               <Route path="/order/:id" element={<Order />} />
-               <Route path="/orderitemthx" element={<OrderItemThx />} />
                <Route path="/orderhistory" element={<OrderHistory />} />
-             
+               <Route path="/subscriptionhistory" element={<SubscriptionHistory />} />
+               <Route path="/paymentmethod" element={<PaymentMethod />} />
+                <Route path="/payment/success" element={<PaymentSuccess />} />
+                <Route path="/payment/failure" element={<PaymentFailure />} />
         </Routes>
         {!login && !signup && <Footer />}
     </>

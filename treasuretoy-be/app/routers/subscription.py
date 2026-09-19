@@ -16,3 +16,11 @@ def create_subscription(sub: SubscriptionCreate, db: Session = Depends(get_db), 
     db.commit()
     db.refresh(new_sub)
     return new_sub
+
+@router.get('/subscriptionhistory',response_model=list[SubscriptionResponse])
+def show_subscription_history(db:Session=Depends(get_db),current_user:User=Depends(get_current_user)):
+    db_subscription=db.query(Subscription).filter(
+        Subscription.user_id==current_user.id
+    ).all()
+    return db_subscription
+

@@ -15,10 +15,11 @@ class SubscriptionResponse(BaseModel):
     id: int
     user_id: int
     child_id: int
-    status: str="{state.plan}"
+    status: str
     plan:str
     start_date: date | None
     next_billing_date: date | None
     next_delivery_date: date | None
     created_at: datetime
     updated_at: datetime
+

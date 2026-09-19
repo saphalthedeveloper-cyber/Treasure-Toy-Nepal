@@ -55,7 +55,10 @@ const Subscription = () => {
         }),
       });
 
+      const subscription = await subRes.json();
+
       if (subRes.ok) {
+        // navigate('/paymentmethodsub')
         navigate('/subscriptionfinal');
       }
     } catch (err) {
@@ -88,13 +91,16 @@ return (
         value={gender}
         onChange={(e) => setGender(e.target.value)}
         required
+        className="gender-select"
       >
-        <option value="">Select Gender</option>
+        <option value="" disabled>Select Gender</option>
         <option value="male">Male</option>
         <option value="female">Female</option>
       </select>
 
+      <label htmlFor="dateOfBirth">Date of Birth</label>
       <input
+      id="dateOfBirth"
         type="date"
         value={dateOfBirth}
         onChange={(e) => setDateOfBirth(e.target.value)}
@@ -116,10 +122,6 @@ return (
         onChange={(e) => setCity(e.target.value)}
         required
       />
-
-      <h3>Payment</h3>
-
-      <p>Cash on Delivery</p>
 
       <button type="submit">
         Confirm Subscription

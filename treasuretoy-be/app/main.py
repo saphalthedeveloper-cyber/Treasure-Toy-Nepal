@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.database import Base, engine
-from app.routers import products, category, users, child, subscription, order, order_item, address
-from app.models import Product,User,Category,Address,Child,OrderItem,Order,Subscription
+from app.routers import products, category, users, child, subscription, order, order_item, address,payment
+from app.models import Product,User,Category,Address,Child,OrderItem,Order,Subscription,Payment
 from app.seed import seed
 
 app = FastAPI(title="Treasure Toy API")
@@ -29,5 +29,6 @@ app.include_router(subscription.router)
 app.include_router(order.router)
 app.include_router(order_item.router)
 app.include_router(address.router)
+app.include_router(payment.router)
 
 

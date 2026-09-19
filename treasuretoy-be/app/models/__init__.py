@@ -6,3 +6,4 @@ from app.models.products import Product
 from app.models.subscription import Subscription
 from app.models.order import Order
 from app.models.order_item import OrderItem
+from app.models.payment import Payment
