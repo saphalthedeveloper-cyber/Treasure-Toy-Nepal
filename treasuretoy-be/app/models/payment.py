@@ -4,8 +4,8 @@ from app.database import Base
 class Payment(Base):
     __tablename__ = "payments"
 
-    id = Column(Integer, primary_key=True, index=True)
-    order_id = Column(Integer, ForeignKey("orders.id"), nullable=False)
+    id = Column(Integer, primary_key=True)
+    order_id = Column(Integer, ForeignKey("orders.id", ondelete="CASCADE"), nullable=False,index=True)
     amount = Column(Numeric(10, 2), nullable=False)
     method = Column(String(50), nullable=False)
     status = Column(String(20), nullable=False, default="pending")

@@ -65,6 +65,7 @@ const email = localStorage.getItem("email");
                   <span className="showprofile-email">{email}</span>
                   <button onClick={handleOrder} className="show-profile-order">My Orders</button>
                   <button onClick={handleSubscription} className="show-profile-subscription">My Subscription</button>
+                  <button onClick={()=>navigate('/chat')} className="show-profile-subscription">Chat with AI</button>
                    <button onClick={handleLogout} className="logout-btn">Logout</button>
               </span>
               

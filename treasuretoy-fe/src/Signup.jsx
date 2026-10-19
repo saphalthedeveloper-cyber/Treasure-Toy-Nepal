@@ -29,7 +29,7 @@ const Signup = () => {
       if (!res.ok) {
         throw new Error("Could not create account. Try a different email.");
       }
-
+      const username=localStorage.setItem("username", name);
       const data = await res.json();
       navigate('/users/login'); 
     } catch (err) {

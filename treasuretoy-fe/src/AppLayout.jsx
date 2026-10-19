@@ -17,10 +17,12 @@ import PaymentMethod from './PaymentMethod';
 import OrderHistory from './OrderHistory';
 import PaymentFailure from "./PaymentFailure";
 import PaymentSuccess from "./PaymentSuccess";
+import AI from './AI';
 const AppLayout = () => {
     const location = useLocation();
     const login = location.pathname === '/users/login';
     const signup = location.pathname === '/users';
+    const chat = location.pathname === '/chat';
 
     return (<>
         {!login && !signup && <Navbar />}
@@ -41,8 +43,9 @@ const AppLayout = () => {
                <Route path="/paymentmethod" element={<PaymentMethod />} />
                 <Route path="/payment/success" element={<PaymentSuccess />} />
                 <Route path="/payment/failure" element={<PaymentFailure />} />
+                <Route path="/chat" element={<AI />} />
         </Routes>
-        {!login && !signup && <Footer />}
+        {!login && !signup && !chat && <Footer />}
     </>
     );
 }

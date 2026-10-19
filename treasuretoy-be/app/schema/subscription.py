@@ -1,6 +1,6 @@
 from datetime import date, datetime
 
-from pydantic import BaseModel
+from pydantic import BaseModel,ConfigDict
 
 class SubscriptionCreate(BaseModel):
     user_id: int
@@ -22,4 +22,6 @@ class SubscriptionResponse(BaseModel):
     next_delivery_date: date | None
     created_at: datetime
     updated_at: datetime
+
+    model_config = ConfigDict(from_attributes=True)
 

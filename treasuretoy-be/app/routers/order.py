@@ -47,3 +47,21 @@ def show_order(db:Session=Depends(get_db),current_user:User=Depends(get_current_
         Order.user_id==current_user.id
     ).all()
     return db_order
+
+@router.delete('/orderhistory/{order_id}')
+def delete_order(order_id: int, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
+    order = db.query(Order).filter(
+        Order.id == order_id,
+        Order.user_id == current_user.id
+    ).first()
+
+    if not order:
+        raise HTTPException(status_code=404, detail="Order not found")
+
+    db.delete(order)
+    db.commit()
+
+    return {"detail": "Order deleted successfully"}
+
+
+

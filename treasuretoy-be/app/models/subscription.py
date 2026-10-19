@@ -4,8 +4,8 @@ class Subscription(Base):
     __tablename__ = "subscriptions"
 
     id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
-    child_id = Column(Integer, ForeignKey("children.id"), nullable=False)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False,index=True)
+    child_id = Column(Integer, ForeignKey("children.id"), nullable=False,index=True)
     status = Column(String(20), nullable=False)
     start_date = Column(Date)
     plan=Column(String)
