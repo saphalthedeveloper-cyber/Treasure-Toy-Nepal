@@ -13,4 +13,8 @@ __pycache__/
 *.pyc
 
 # Environment
+<<<<<<< HEAD
 .env
+=======
+.env
+>>>>>>> 3f50cbb7d2586bfed3127e73c8d3dd4f8510ae39
