@@ -73,7 +73,7 @@ def chat_with_ai(chat: ChatRequest, db: Session = Depends(get_db), current_user:
 
         
     response=client.chat(
-        model="qwen2.5:3b",
+        model="qwen2.5:1.5b",
         messages=[
             {
                 "role": "system",
